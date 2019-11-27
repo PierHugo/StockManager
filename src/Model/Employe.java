@@ -38,4 +38,23 @@ public class Employe {
     public void setMail(String mail) {
         Mail = mail;
     }
+
+    public boolean isEstEmploye() {
+        return EstEmploye;
+    }
+
+    public void setEstEmploye(boolean estEmploye) {
+        EstEmploye = estEmploye;
+    }
+
+    public Employe(boolean estEmploye, String nom, String prenom, String magasin, String mail) {
+        EstEmploye = estEmploye;
+        Nom = nom;
+        Prenom = prenom;
+        Magasin = magasin;
+        Mail = mail;
+    }
+
+    public Employe() {
+    }
 }
