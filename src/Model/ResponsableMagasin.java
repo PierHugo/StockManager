@@ -1,6 +1,6 @@
 package Model;
 
-public class ResponsableMagasin extends ChefRayon {
+public class ResponsableMagasin {
 
     private boolean EstAdmin;
 
@@ -11,5 +11,5 @@ public class ResponsableMagasin extends ChefRayon {
     public void setEstAdmin(boolean estAdmin) {
         EstAdmin = estAdmin;
     }
-    
+
 }
