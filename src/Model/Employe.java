@@ -6,6 +6,15 @@ public class Employe {
     private String Prenom;
     private String Magasin;
     private String Mail;
+    private boolean AccesAppli;
+
+    public boolean isAccesAppli() {
+        return AccesAppli;
+    }
+
+    public void setAccesAppli(boolean accesAppli) {
+        AccesAppli = accesAppli;
+    }
 
     public String getNom() {
         return Nom;
@@ -47,12 +56,13 @@ public class Employe {
         EstEmploye = estEmploye;
     }
 
-    public Employe(boolean estEmploye, String nom, String prenom, String magasin, String mail) {
+    public Employe(boolean estEmploye, String nom, String prenom, String magasin, String mail, boolean accesAppli) {
         EstEmploye = estEmploye;
         Nom = nom;
         Prenom = prenom;
         Magasin = magasin;
         Mail = mail;
+        AccesAppli = accesAppli;
     }
 
     public Employe() {

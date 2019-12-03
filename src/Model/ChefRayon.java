@@ -22,7 +22,7 @@ public class ChefRayon extends Employe {
     }
 
     public ChefRayon(Employe employe){
-        super(employe.isEstEmploye(), employe.getPrenom(), employe.getNom(), employe.getMagasin(), employe.getMail());
+        super(employe.isEstEmploye(), employe.getPrenom(), employe.getNom(), employe.getMagasin(), employe.getMail(), employe.isAccesAppli());
         setEstChef(true);
         Rayon = getRayon();
     }
