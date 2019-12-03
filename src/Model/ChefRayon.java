@@ -1,33 +1,33 @@
 package Model;
 
-public class ChefRayon extends Employe {
+public class ChefRayon extends Employe
+{
 
     private boolean EstChef;
     private String Rayon;
 
-    public String getRayon() {
+    public ChefRayon()
+    {
+    }
+
+    public String getRayon()
+    {
         return Rayon;
     }
 
-    public void setRayon(String rayon) {
+    public void setRayon(String rayon)
+    {
         Rayon = rayon;
     }
 
-    public boolean isEstChef() {
+    public boolean isEstChef()
+    {
         return EstChef;
     }
 
-    public void setEstChef(boolean estChef) {
+    public void setEstChef(boolean estChef)
+    {
         EstChef = estChef;
-    }
-
-    public ChefRayon(Employe employe){
-        super(employe.isEstEmploye(), employe.getPrenom(), employe.getNom(), employe.getMagasin(), employe.getMail(), employe.isAccesAppli());
-        setEstChef(true);
-        Rayon = getRayon();
-    }
-
-    public ChefRayon() {
     }
 
 }
