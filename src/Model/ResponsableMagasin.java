@@ -31,27 +31,37 @@ public class ResponsableMagasin  extends Personne{
 
     //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin. Révoquer les droits aussi.
     //TODO : Gérer les excéptions, cas d'ajouter un employe deja existant, supprimer un employe inexistant, etc
-    public void ajouterEmploye(Employe e) throws IOException{
-        Magasin.getEmployes().add(e);
+    public void ajouterEmploye(Employe employe) throws IOException{
+        Magasin.getEmployes().add(employe);
     }
 
-    public void supprimerEmploye (Employe e) {
-        Magasin.getEmployes().remove(e);
+    public void supprimerEmploye (Employe employe) {
+        Magasin.getEmployes().remove(employe);
     }
 
-    public void revoquerDroit (Employe e) throws IOException{
-        int index = Magasin.getEmployes().indexOf(e);
+    public void ajouterChefRayon(ChefRayon chefRayon) {
+        Magasin.getChefsRayon().add(chefRayon);
+    }
+
+    public void supprimerChefRayon (ChefRayon chefRayon) {
+        Magasin.getChefsRayon().remove(chefRayon);
+    }
+
+    public void revoquerDroit (Employe employe) throws IOException{
+        int index = Magasin.getEmployes().indexOf(employe);
         Magasin.getEmployes().get(index).setAccesAppli(false);
 
     }
 
-    public void donnerDroit (Employe e) throws IOException {
-        int index = Magasin.getEmployes().indexOf(e);
+    public void donnerDroit (Employe employe) throws IOException {
+        int index = Magasin.getEmployes().indexOf(employe);
         Magasin.getEmployes().get(index).setAccesAppli(true);
 
     }
 
-    public void nommerChefRayon () {
-
+    public void nommerChefRayon (Employe employe, Rayon rayon) {
+        employe.setEstEmploye(false);
+        supprimerEmploye(employe);
+        new ChefRayon(employe, rayon);
     }
 }
