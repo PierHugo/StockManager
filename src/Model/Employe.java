@@ -1,12 +1,9 @@
 package Model;
 
-public class Employe {
+public class Employe  extends Personne{
     private boolean EstEmploye;
-    private String Nom;
-    private String Prenom;
-    private String Magasin;
-    private String Mail;
     private boolean AccesAppli;
+
 
     public boolean isAccesAppli() {
         return AccesAppli;
@@ -14,38 +11,6 @@ public class Employe {
 
     public void setAccesAppli(boolean accesAppli) {
         AccesAppli = accesAppli;
-    }
-
-    public String getNom() {
-        return Nom;
-    }
-
-    public void setNom(String nom) {
-        Nom = nom;
-    }
-
-    public String getPrenom() {
-        return Prenom;
-    }
-
-    public void setPrenom(String prenom) {
-        Prenom = prenom;
-    }
-
-    public String getMagasin() {
-        return Magasin;
-    }
-
-    public void setMagasin(String magasin) {
-        Magasin = magasin;
-    }
-
-    public String getMail() {
-        return Mail;
-    }
-
-    public void setMail(String mail) {
-        Mail = mail;
     }
 
     public boolean isEstEmploye() {
@@ -56,15 +21,16 @@ public class Employe {
         EstEmploye = estEmploye;
     }
 
-    public Employe(boolean estEmploye, String nom, String prenom, String magasin, String mail, boolean accesAppli) {
+    public Employe(Personne personne, boolean estEmploye, boolean accesAppli) {
+        super(personne.getNom(), personne.getPrenom(), personne.getMail(), personne.getNomMagasin());
         EstEmploye = estEmploye;
-        Nom = nom;
-        Prenom = prenom;
-        Magasin = magasin;
-        Mail = mail;
         AccesAppli = accesAppli;
     }
 
     public Employe() {
+    }
+
+    public Employe getEmploye() {
+        return this;
     }
 }
