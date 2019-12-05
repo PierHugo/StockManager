@@ -2,7 +2,8 @@ package Model;
 
 import java.util.ArrayList;
 
-public class Magasin {
+public class Magasin
+{
     private ArrayList<Rayon> rayons;
     private ArrayList<Employe> employes;
     private ArrayList<ChefRayon> chefsRayon;

@@ -1,6 +1,7 @@
 package Model;
 
-public class Article {
+public class Article
+{
     private float prix;
     private String reference;
     private String nom;
@@ -8,51 +9,63 @@ public class Article {
     private int enStock;
     private String rayon;
 
-    public float getPrix() {
+    public float getPrix()
+    {
         return prix;
     }
 
-    public void setPrix(float prix) {
+    public void setPrix(float prix)
+    {
         this.prix = prix;
     }
 
-    public String getReference() {
+    public String getReference()
+    {
         return reference;
     }
 
-    public void setReference(String reference) {
+    public void setReference(String reference)
+    {
         this.reference = reference;
     }
 
-    public String getNom() {
+    public String getNom()
+    {
         return nom;
     }
 
-    public void setNom(String nom) {
+    public void setNom(String nom)
+    {
         this.nom = nom;
     }
 
-    public int getEnRayon() {
+    public int getEnRayon()
+    {
         return enRayon;
     }
 
-    public void setEnRayon(int enRayon) {
+    public void setEnRayon(int enRayon)
+    {
         this.enRayon = enRayon;
     }
 
-    public int getEnStock() {
+    public int getEnStock()
+    {
         return enStock;
     }
 
-    public void setEnStock(int enStock) {
+    public void setEnStock(int enStock)
+    {
         this.enStock = enStock;
     }
 
-    public String getRayon() {
+    public String getRayon()
+    {
         return rayon;
     }
 
-    public void setRayon(String rayon) {
+    public void setRayon(String rayon)
+    {
         this.rayon = rayon;
     }
 }

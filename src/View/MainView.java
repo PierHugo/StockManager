@@ -2,16 +2,19 @@ package View;
 
 import javax.swing.*;
 
-public class MainView extends JFrame {
+public class MainView extends JFrame
+{
     private JPanel MainPanel;
     private JTabbedPane tabbedPane1;
 
-    public MainView() {
+    public MainView()
+    {
         setContentPane(MainPanel);
         setTitle("Gestion de stocks");
     }
 
-    public void open() {
+    public void open()
+    {
         pack();
         setSize(750, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
