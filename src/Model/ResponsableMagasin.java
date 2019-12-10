@@ -31,7 +31,7 @@ public class ResponsableMagasin  extends Personne{
 
     //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin. Révoquer les droits aussi.
     //TODO : Gérer les excéptions, cas d'ajouter un employe deja existant, supprimer un employe inexistant, etc
-    public void ajouterEmploye(Employe employe) throws IOException{
+    public void ajouterEmploye(Employe employe) {
         Magasin.getEmployes().add(employe);
     }
 
@@ -47,13 +47,13 @@ public class ResponsableMagasin  extends Personne{
         Magasin.getChefsRayon().remove(chefRayon);
     }
 
-    public void revoquerDroit (Employe employe) throws IOException{
+    public void revoquerDroit (Employe employe) {
         int index = Magasin.getEmployes().indexOf(employe);
         Magasin.getEmployes().get(index).setAccesAppli(false);
 
     }
 
-    public void donnerDroit (Employe employe) throws IOException {
+    public void donnerDroit (Employe employe) {
         int index = Magasin.getEmployes().indexOf(employe);
         Magasin.getEmployes().get(index).setAccesAppli(true);
 
@@ -62,6 +62,30 @@ public class ResponsableMagasin  extends Personne{
     public void nommerChefRayon (Employe employe, Rayon rayon) {
         employe.setEstEmploye(false);
         supprimerEmploye(employe);
-        new ChefRayon(employe, rayon);
+        ChefRayon chefRayon = new ChefRayon(employe, rayon);
+        ajouterChefRayon(chefRayon);
     }
+
+    public void destituerChefRayon (ChefRayon chefRayon) {
+        chefRayon.setEstChefRayon(false);
+        supprimerChefRayon(chefRayon);
+        Employe employe = new Employe (chefRayon);
+        ajouterEmploye(employe);
+    }
+
+    public void changerRayon (ChefRayon chefRayon, Rayon rayon) {
+        chefRayon.setRayon(rayon);
+        rayon.setChefRayon(chefRayon);
+    }
+     public void modifierMail (Employe employe, String mail) {
+        int index = Magasin.getEmployes().indexOf(employe);
+        Magasin.getEmployes().get(index).setMail(mail);
+     }
+
+     public void modifierNomMagasin (Employe employe, String nomMagasin) {
+        int index = Magasin.getEmployes().indexOf(employe);
+        Magasin.getEmployes().get(index).setNomMagasin(nomMagasin);
+     }
+
+
 }

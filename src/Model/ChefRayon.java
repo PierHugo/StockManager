@@ -1,5 +1,7 @@
 package Model;
 
+import java.util.ArrayList;
+
 public class ChefRayon extends Personne {
 
     private boolean EstChefRayon;
@@ -26,6 +28,35 @@ public class ChefRayon extends Personne {
         super(personne.getNom(), personne.getPrenom(), personne.getMail(), personne.getNomMagasin());
         EstChefRayon = true;
         Rayon = rayon;
+    }
+
+    //TODO : méthodes pour gérer les articles du rayon
+    public void ajouterArticle (Article article) {
+        Rayon.getArticles().add(article);
+    }
+
+    public void supprimerArticle (Article article) {
+        Rayon.getArticles().remove(article);
+    }
+
+    public void modifierPrix (Article article, float prix) {
+        int index = Rayon.getArticles().indexOf(article);
+        Rayon.getArticles().get(index).setPrix(prix);
+    }
+
+//    public void modifierReference (Article article, String reference) {
+//        int index = Rayon.getArticles().indexOf(article);
+//        Rayon.getArticles().get(index).setReference(reference);
+//    }
+
+    public void modifierEnRayon (Article article, int enRayon) {
+        int index = Rayon.getArticles().indexOf(article);
+        Rayon.getArticles().get(index).setEnRayon(enRayon);
+    }
+
+    public void modifierEnStock (Article article, int enStock) {
+        int index = Rayon.getArticles().indexOf(article);
+        Rayon.getArticles().get(index).setEnStock(enStock);
     }
 
 }

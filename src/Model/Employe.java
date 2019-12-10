@@ -21,10 +21,10 @@ public class Employe  extends Personne{
         EstEmploye = estEmploye;
     }
 
-    public Employe(Personne personne, boolean estEmploye, boolean accesAppli) {
+    public Employe(Personne personne) {
         super(personne.getNom(), personne.getPrenom(), personne.getMail(), personne.getNomMagasin());
-        EstEmploye = estEmploye;
-        AccesAppli = accesAppli;
+        EstEmploye = true;
+        AccesAppli = true;
     }
 
     public Employe() {
