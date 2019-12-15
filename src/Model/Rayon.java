@@ -37,4 +37,14 @@ public class Rayon
     {
         this.chefRayon = chefRayon;
     }
+
+    public Rayon() {
+
+    }
+
+    public Rayon(ArrayList<Article> articlesParam, String nomParam, ChefRayon chefRayonParam) {
+        Articles = articlesParam;
+        nom = nomParam;
+        chefRayon = chefRayonParam;
+    }
 }

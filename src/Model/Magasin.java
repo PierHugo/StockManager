@@ -50,4 +50,14 @@ public class Magasin
         this.responsableMagasin = responsableMagasin;
     }
 
+    public Magasin(){
+
+    }
+    public Magasin(ArrayList<Rayon> rayonsParam, ArrayList<Employe> employesParam, ArrayList<ChefRayon> chefsRayonParam, String nomParam) {
+        rayons = rayonsParam;
+        employes = employesParam;
+        chefsRayon = chefsRayonParam;
+        nom = nomParam;
+    }
+
 }

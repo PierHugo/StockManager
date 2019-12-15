@@ -23,9 +23,9 @@ public class ResponsableMagasin  extends Personne{
         this.Magasin = magasin;
     }
 
-    public  ResponsableMagasin(Personne personne, boolean estAdmin, Magasin magasin){
+    public  ResponsableMagasin(Personne personne, Magasin magasin){
         super(personne.getNom(), personne.getPrenom(), personne.getMail(), personne.getNomMagasin());
-        EstAdmin = estAdmin;
+        EstAdmin = true;
         Magasin =  magasin;
     }
 
