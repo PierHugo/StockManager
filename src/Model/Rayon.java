@@ -39,7 +39,9 @@ public class Rayon
     }
 
     public Rayon() {
-
+        Articles = new ArrayList<>();
+        nom = "";
+        chefRayon = null;
     }
 
     public Rayon(ArrayList<Article> articlesParam, String nomParam, ChefRayon chefRayonParam) {

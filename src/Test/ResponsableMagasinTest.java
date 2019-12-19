@@ -3,24 +3,18 @@ package Test;
 import static org.junit.Assert.*;
 
 import Model.*;
-import org.junit.Before;
 import org.junit.Test;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-
 public class ResponsableMagasinTest {
-    private Personne responsableTest = new Personne("Test", "Osterone", "test.osterone@gmail.com", "MagasinTest");
+    private Vendeur responsableTest = new Vendeur("Test", "Osterone", "test.osterone@gmail.com", "MagasinTest");
 
     @Test
     public final void testAjouterEmploye() {
         boolean resultat = true;
         Magasin magasinTest = new Magasin();
         ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
-        ArrayList<Employe> employesTest = new ArrayList<>();
-        magasinTest.setEmployes(employesTest);
-        Personne personneTest = new Personne("Test", "Test", "test.test@test.com", "Test");
-        Employe employeTest = new Employe(personneTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
 
         responsableMagasinTest.ajouterEmploye(employeTest);
        assertEquals(resultat, responsableMagasinTest.getMagasin().getEmployes().contains(employeTest));
@@ -32,11 +26,9 @@ public class ResponsableMagasinTest {
         boolean resultat = true;
         Magasin magasinTest = new Magasin();
         ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
-        ArrayList<Employe> employesTest = new ArrayList<>();
-        magasinTest.setEmployes(employesTest);
-        Personne personneTest = new Personne("Test", "Test", "test.test@test.com", "Test");
-        Employe employeTest = new Employe(personneTest);
-        employesTest.add(employeTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
+        responsableMagasinTest.getMagasin().getEmployes().add(employeTest);
 
         responsableMagasinTest.supprimerEmploye(employeTest);
         assertNotEquals(resultat, responsableMagasinTest.getMagasin().getEmployes().contains(employeTest));
@@ -48,10 +40,8 @@ public class ResponsableMagasinTest {
         Magasin magasinTest = new Magasin();
         Rayon rayonTest = new Rayon();
         ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
-        ArrayList<ChefRayon> chefsRayonsTest = new ArrayList<>();
-        magasinTest.setChefsRayon(chefsRayonsTest);
-        Personne personneTest = new Personne("Test", "Test", "test.test@test.com", "Test");
-        ChefRayon chefRayonTest = new ChefRayon(personneTest, rayonTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        ChefRayon chefRayonTest = new ChefRayon(vendeurTest, rayonTest);
 
         responsableMagasinTest.ajouterChefRayon(chefRayonTest);
         assertEquals(resultat, responsableMagasinTest.getMagasin().getChefsRayon().contains(chefRayonTest));
@@ -63,11 +53,9 @@ public class ResponsableMagasinTest {
         Magasin magasinTest = new Magasin();
         Rayon rayonTest = new Rayon();
         ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
-        ArrayList<ChefRayon> chefsRayonsTest = new ArrayList<>();
-        magasinTest.setChefsRayon(chefsRayonsTest);
-        Personne personneTest = new Personne("Test", "Test", "test.test@test.com", "Test");
-        ChefRayon chefRayonTest = new ChefRayon(personneTest, rayonTest);
-        chefsRayonsTest.add(chefRayonTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        ChefRayon chefRayonTest = new ChefRayon(vendeurTest, rayonTest);
+        responsableMagasinTest.getMagasin().getChefsRayon().add(chefRayonTest);
 
         responsableMagasinTest.supprimerChefRayon(chefRayonTest);
         assertNotEquals(resultat, responsableMagasinTest.getMagasin().getChefsRayon().contains(chefRayonTest));
@@ -75,37 +63,107 @@ public class ResponsableMagasinTest {
 
     @Test
     public final void testRevoquerDroit() {
-        fail("not yet implemented");
+        boolean resultat = false;
+        Magasin magasinTest = new Magasin();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
+        responsableMagasinTest.getMagasin().getEmployes().add(employeTest);
+
+        int indexTest = responsableMagasinTest.getMagasin().getEmployes().indexOf(employeTest);
+        responsableMagasinTest.revoquerDroit(employeTest);
+        assertEquals(resultat, responsableMagasinTest.getMagasin().getEmployes().get(indexTest).isAccesAppli());
+
     }
 
     @Test
     public final void testDonnerDroit() {
-        fail("not yet implemented");
+        boolean resultat = true;
+        Magasin magasinTest = new Magasin();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
+        responsableMagasinTest.getMagasin().getEmployes().add(employeTest);
+
+        int indexTest = responsableMagasinTest.getMagasin().getEmployes().indexOf(employeTest);
+        responsableMagasinTest.donnerDroit(employeTest);
+        assertEquals(resultat, responsableMagasinTest.getMagasin().getEmployes().get(indexTest).isAccesAppli());
     }
 
     @Test
     public final void testNommerChefRayon() {
-        fail("not yet implemented");
+        boolean resultat = true;
+        Magasin magasinTest = new Magasin();
+        Rayon rayonTest = new Rayon();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
+        responsableMagasinTest.getMagasin().getEmployes().add(employeTest);
+
+        responsableMagasinTest.nommerChefRayon(employeTest, rayonTest);
+        assertEquals(resultat, responsableMagasinTest.getMagasin().getChefsRayon().contains(employeTest));
+        assertNotEquals(resultat, responsableMagasinTest.getMagasin().getEmployes().contains(employeTest));
+
     }
 
     @Test
     public final void testDestituerChefRayon() {
-        fail("not yet implemented");
+        boolean resultat = true;
+        Magasin magasinTest = new Magasin();
+        Rayon rayonTest = new Rayon();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        ChefRayon chefRayonTest = new ChefRayon(vendeurTest, rayonTest);
+        responsableMagasinTest.getMagasin().getChefsRayon().add(chefRayonTest);
+
+        responsableMagasinTest.destituerChefRayon(chefRayonTest);
+        assertEquals(resultat, responsableMagasinTest.getMagasin().getEmployes().contains(vendeurTest));
+        assertNotEquals(resultat, responsableMagasinTest.getMagasin().getChefsRayon().contains(chefRayonTest));
     }
 
     @Test
     public final void testChangerRayon() {
-        fail("not yet implemented");
+        Magasin magasinTest = new Magasin();
+        Rayon rayonTestUn = new Rayon();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTestUn = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        ChefRayon chefRayonTest = new ChefRayon(vendeurTestUn, rayonTestUn);
+        responsableMagasinTest.getMagasin().getChefsRayon().add(chefRayonTest);
+
+        Rayon rayonTestDeux = new Rayon(null, "Rayon Deux", null);
+        responsableMagasinTest.changerRayon(chefRayonTest, rayonTestDeux);
+        assertSame(rayonTestDeux, chefRayonTest.getRayon());
+        assertSame(chefRayonTest, rayonTestDeux.getChefRayon());
     }
 
     @Test
     public final void testModifierMail() {
-        fail("not yet implemented");
+        String mailTest = "mail.test@test.com";
+        String resultat = mailTest;
+        Magasin magasinTest = new Magasin();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
+        responsableMagasinTest.getMagasin().getEmployes().add(employeTest);
+
+        int indexTest = responsableMagasinTest.getMagasin().getEmployes().indexOf(employeTest);
+        responsableMagasinTest.modifierMail(employeTest, mailTest);
+        assertSame(resultat, responsableMagasinTest.getMagasin().getEmployes().get(indexTest).getMail());
     }
 
     @Test
     public final void testModifierNomMagasin() {
-        fail("not yet implemented");
+        String nomMagasinTest = "nouveauMagasin";
+        String resultat = nomMagasinTest;
+        Magasin magasinTest = new Magasin();
+        ResponsableMagasin responsableMagasinTest = new ResponsableMagasin(responsableTest, magasinTest);
+        Vendeur vendeurTest = new Vendeur("Test", "Test", "test.test@test.com", "MagasinTest");
+        Employe employeTest = new Employe(vendeurTest);
+        responsableMagasinTest.getMagasin().getEmployes().add(employeTest);
+
+        int indexTest = responsableMagasinTest.getMagasin().getEmployes().indexOf(employeTest);
+        responsableMagasinTest.modifierNomMagasin(employeTest, nomMagasinTest);
+        assertSame(resultat, responsableMagasinTest.getMagasin().getEmployes().get(indexTest).getNomMagasin());
     }
 }
 

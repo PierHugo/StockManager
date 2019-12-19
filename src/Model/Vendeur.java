@@ -1,10 +1,19 @@
 package Model;
 
-public class Personne {
+public class Vendeur {
     private String Nom;
     private String Prenom;
     private String Mail;
     private String NomMagasin;
+    private int idRayon;
+
+    public int getIdRayon() {
+        return idRayon;
+    }
+
+    public void setIdRayon(int idRayon) {
+        this.idRayon = idRayon;
+    }
 
     public String getNomMagasin() {
         return NomMagasin;
@@ -38,13 +47,14 @@ public class Personne {
         Mail = mail;
     }
 
-    public Personne() {
+    public Vendeur() {
     }
 
-    public Personne(String nom, String prenom, String mail, String nomMagasin) {
+    public Vendeur(String nom, String prenom, String mail, String nomMagasin, int idRayonParam) {
         Nom = nom;
         Prenom = prenom;
         Mail = mail;
         NomMagasin = nomMagasin;
+        idRayon = idRayonParam;
     }
 }

@@ -5,10 +5,9 @@ import java.util.ArrayList;
 public class Magasin
 {
     private ArrayList<Rayon> rayons;
-    private ArrayList<Employe> employes;
-    private ArrayList<ChefRayon> chefsRayon;
+    private ArrayList<Vendeur> vendeurs;
     private String nom;
-    private ResponsableMagasin responsableMagasin;
+    private String nomResponsableMagasin;
 
     public ArrayList<Rayon> getRayons() {
         return rayons;
@@ -18,20 +17,20 @@ public class Magasin
         this.rayons = rayons;
     }
 
-    public ArrayList<Employe> getEmployes() {
-        return employes;
+    public ArrayList<Vendeur> getVendeurs() {
+        return vendeurs;
     }
 
-    public void setEmployes(ArrayList<Employe> employes) {
-        this.employes = employes;
+    public void setVendeurs(ArrayList<Vendeur> vendeurs) {
+        this.vendeurs = vendeurs;
     }
 
-    public ArrayList<ChefRayon> getChefsRayon() {
-        return chefsRayon;
+    public String getNomResponsableMagasin() {
+        return nomResponsableMagasin;
     }
 
-    public void setChefsRayon(ArrayList<ChefRayon> chefsRayon) {
-        this.chefsRayon = chefsRayon;
+    public void setNomResponsableMagasin(String nomResponsableMagasin) {
+        this.nomResponsableMagasin = nomResponsableMagasin;
     }
 
     public String getNom() {
@@ -42,22 +41,17 @@ public class Magasin
         this.nom = nom;
     }
 
-    public ResponsableMagasin getResponsableMagasin() {
-        return responsableMagasin;
-    }
-
-    public void setResponsableMagasin(ResponsableMagasin responsableMagasin) {
-        this.responsableMagasin = responsableMagasin;
-    }
-
     public Magasin(){
-
+        rayons = new ArrayList<>();
+        vendeurs = new ArrayList<>();
+        nom = "";
+        nomResponsableMagasin = "";
     }
-    public Magasin(ArrayList<Rayon> rayonsParam, ArrayList<Employe> employesParam, ArrayList<ChefRayon> chefsRayonParam, String nomParam) {
+    public Magasin(ArrayList<Rayon> rayonsParam, ArrayList<Vendeur> vendeursParam, String nomParam, String nomResponsableMagasinParam) {
         rayons = rayonsParam;
-        employes = employesParam;
-        chefsRayon = chefsRayonParam;
+        vendeurs = vendeursParam;
         nom = nomParam;
+        nomResponsableMagasin = nomResponsableMagasinParam;
     }
 
 }

@@ -1,10 +1,11 @@
 package Model;
 
-import java.io.IOException;
-
-public class ResponsableMagasin  extends Personne{
+public class ResponsableMagasin  {
 
     private boolean EstAdmin;
+    private String prenom;
+    private String nom;
+    private String mail;
     private Magasin Magasin;
 
     public boolean isEstAdmin() {
@@ -23,10 +24,12 @@ public class ResponsableMagasin  extends Personne{
         this.Magasin = magasin;
     }
 
-    public  ResponsableMagasin(Personne personne, Magasin magasin){
-        super(personne.getNom(), personne.getPrenom(), personne.getMail(), personne.getNomMagasin());
+    public  ResponsableMagasin(Vendeur vendeurParam, Magasin magasinParam){
+        super(vendeurParam.getNom(), vendeurParam.getPrenom(), vendeurParam.getMail(), vendeurParam.getNomMagasin());
         EstAdmin = true;
-        Magasin =  magasin;
+        Magasin =  magasinParam;
+        Magasin.setNom(vendeurParam.getNomMagasin());
+        Magasin.setResponsableMagasin(this);
     }
 
     //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin. Révoquer les droits aussi.
@@ -61,16 +64,19 @@ public class ResponsableMagasin  extends Personne{
 
     public void nommerChefRayon (Employe employe, Rayon rayon) {
         employe.setEstEmploye(false);
-        supprimerEmploye(employe);
         ChefRayon chefRayon = new ChefRayon(employe, rayon);
         ajouterChefRayon(chefRayon);
+        supprimerEmploye(employe);
     }
 
     public void destituerChefRayon (ChefRayon chefRayon) {
         chefRayon.setEstChefRayon(false);
-        supprimerChefRayon(chefRayon);
+        chefRayon.getRayon().setNom("");
+        chefRayon.getRayon().setChefRayon(null);
+        chefRayon.setRayon(null);
         Employe employe = new Employe (chefRayon);
         ajouterEmploye(employe);
+        supprimerChefRayon(chefRayon);
     }
 
     public void changerRayon (ChefRayon chefRayon, Rayon rayon) {
@@ -86,6 +92,7 @@ public class ResponsableMagasin  extends Personne{
         int index = Magasin.getEmployes().indexOf(employe);
         Magasin.getEmployes().get(index).setNomMagasin(nomMagasin);
      }
+
 
 
 }

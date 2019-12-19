@@ -5,8 +5,16 @@ public class    Article
     private float prix;
     private String reference;
     private String nom;
-    private int enRayon;
-    private int enStock;
+    private int quantite;
+
+    public int getQuantite() {
+        return quantite;
+    }
+
+    public void setQuantite(int quantite) {
+        this.quantite = quantite;
+    }
+
     private String rayon;
 
     public float getPrix()
@@ -37,26 +45,6 @@ public class    Article
     public void setNom(String nom)
     {
         this.nom = nom;
-    }
-
-    public int getEnRayon()
-    {
-        return enRayon;
-    }
-
-    public void setEnRayon(int enRayon)
-    {
-        this.enRayon = enRayon;
-    }
-
-    public int getEnStock()
-    {
-        return enStock;
-    }
-
-    public void setEnStock(int enStock)
-    {
-        this.enStock = enStock;
     }
 
     public String getRayon()
