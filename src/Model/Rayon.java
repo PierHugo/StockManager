@@ -4,18 +4,18 @@ import java.util.ArrayList;
 
 public class Rayon
 {
-    private ArrayList<Article> Articles;
+    private ArrayList<Article> ArticlesRayon;
     private String nom;
-    private ChefRayon chefRayon;
+    int idRayon;
 
     public ArrayList<Article> getArticles()
     {
-        return Articles;
+        return ArticlesRayon;
     }
 
     public void setArticles(ArrayList<Article> articles)
     {
-        Articles = articles;
+        ArticlesRayon = articles;
     }
 
     public String getNom()
@@ -28,25 +28,15 @@ public class Rayon
         this.nom = nom;
     }
 
-    public ChefRayon getChefRayon()
-    {
-        return chefRayon;
-    }
-
-    public void setChefRayon(ChefRayon chefRayon)
-    {
-        this.chefRayon = chefRayon;
-    }
-
     public Rayon() {
-        Articles = new ArrayList<>();
+        ArticlesRayon = new ArrayList<>();
         nom = "";
-        chefRayon = null;
+        idRayon = 0;
     }
 
-    public Rayon(ArrayList<Article> articlesParam, String nomParam, ChefRayon chefRayonParam) {
-        Articles = articlesParam;
+    public Rayon(ArrayList<Article> articlesRayonParam, String nomParam, int idRayonParam) {
+        ArticlesRayon = articlesRayonParam;
         nom = nomParam;
-        chefRayon = chefRayonParam;
+        idRayon = idRayonParam;
     }
 }

@@ -1,12 +1,14 @@
 package Model;
 
+import java.io.IOException;
+
 public class ResponsableMagasin  {
 
     private boolean EstAdmin;
     private String prenom;
     private String nom;
     private String mail;
-    private Magasin Magasin;
+    private Magasin magasin;
 
     public boolean isEstAdmin() {
         return EstAdmin;
@@ -17,80 +19,43 @@ public class ResponsableMagasin  {
     }
 
     public Magasin getMagasin() {
-        return Magasin;
+        return magasin;
     }
 
     public void setMagasin(Magasin magasin) {
-        this.Magasin = magasin;
+        this.magasin = magasin;
     }
 
-    public  ResponsableMagasin(Vendeur vendeurParam, Magasin magasinParam){
-        super(vendeurParam.getNom(), vendeurParam.getPrenom(), vendeurParam.getMail(), vendeurParam.getNomMagasin());
-        EstAdmin = true;
-        Magasin =  magasinParam;
-        Magasin.setNom(vendeurParam.getNomMagasin());
-        Magasin.setResponsableMagasin(this);
+    public  ResponsableMagasin(String prenomParam, String nomParam, String mailParam, Magasin magasinParam){
+        prenom = prenomParam;
+        nom = nomParam;
+        mail = mailParam;
+        magasin = magasinParam;
     }
 
-    //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin. Révoquer les droits aussi.
+    //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin.
     //TODO : Gérer les excéptions, cas d'ajouter un employe deja existant, supprimer un employe inexistant, etc
-    public void ajouterEmploye(Employe employe) {
-        Magasin.getEmployes().add(employe);
+
+    public void ajouterEmploye(Vendeur vendeur) {
+        magasin.getVendeurs().add(vendeur);
     }
 
-    public void supprimerEmploye (Employe employe) {
-        Magasin.getEmployes().remove(employe);
+    public void supprimerEmploye (Vendeur vendeur) {
+        magasin.getVendeurs().remove(vendeur);
     }
 
-    public void ajouterChefRayon(ChefRayon chefRayon) {
-        Magasin.getChefsRayon().add(chefRayon);
+    public void changerRayon (Vendeur vendeur, int idRayon) {
+       vendeur.setIdRayon(idRayon);
     }
 
-    public void supprimerChefRayon (ChefRayon chefRayon) {
-        Magasin.getChefsRayon().remove(chefRayon);
-    }
-
-    public void revoquerDroit (Employe employe) {
-        int index = Magasin.getEmployes().indexOf(employe);
-        Magasin.getEmployes().get(index).setAccesAppli(false);
-
-    }
-
-    public void donnerDroit (Employe employe) {
-        int index = Magasin.getEmployes().indexOf(employe);
-        Magasin.getEmployes().get(index).setAccesAppli(true);
-
-    }
-
-    public void nommerChefRayon (Employe employe, Rayon rayon) {
-        employe.setEstEmploye(false);
-        ChefRayon chefRayon = new ChefRayon(employe, rayon);
-        ajouterChefRayon(chefRayon);
-        supprimerEmploye(employe);
-    }
-
-    public void destituerChefRayon (ChefRayon chefRayon) {
-        chefRayon.setEstChefRayon(false);
-        chefRayon.getRayon().setNom("");
-        chefRayon.getRayon().setChefRayon(null);
-        chefRayon.setRayon(null);
-        Employe employe = new Employe (chefRayon);
-        ajouterEmploye(employe);
-        supprimerChefRayon(chefRayon);
-    }
-
-    public void changerRayon (ChefRayon chefRayon, Rayon rayon) {
-        chefRayon.setRayon(rayon);
-        rayon.setChefRayon(chefRayon);
-    }
-     public void modifierMail (Employe employe, String mail) {
-        int index = Magasin.getEmployes().indexOf(employe);
-        Magasin.getEmployes().get(index).setMail(mail);
+     public void modifierMail (Vendeur vendeur, String mail) {
+        int index = magasin.getVendeurs().indexOf(vendeur);
+        magasin.getVendeurs().get(index).setMail(mail);
      }
 
-     public void modifierNomMagasin (Employe employe, String nomMagasin) {
-        int index = Magasin.getEmployes().indexOf(employe);
-        Magasin.getEmployes().get(index).setNomMagasin(nomMagasin);
+     public void modifierNomMagasin (Vendeur vendeur, String nomMagasin) {
+        int index = magasin.getVendeurs().indexOf(vendeur);
+        magasin.getVendeurs().get(index).setNomMagasin(nomMagasin);
      }
 
 

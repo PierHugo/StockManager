@@ -1,12 +1,13 @@
 package Controller;
 
+import Model.Vendeur;
 import View.MainView;
 
 
 public class Controller
 {
     private MainView mainView;
-    private Employe employe;
+    private Vendeur vendeur;
 
     public Controller()
     {

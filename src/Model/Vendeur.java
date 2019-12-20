@@ -1,10 +1,10 @@
 package Model;
 
 public class Vendeur {
-    private String Nom;
-    private String Prenom;
-    private String Mail;
-    private String NomMagasin;
+    private String nom;
+    private String prenom;
+    private String mail;
+    private String nomMagasin;
     private int idRayon;
 
     public int getIdRayon() {
@@ -16,45 +16,42 @@ public class Vendeur {
     }
 
     public String getNomMagasin() {
-        return NomMagasin;
+        return nomMagasin;
     }
 
     public void setNomMagasin(String nomMagasin) {
-        NomMagasin = nomMagasin;
+        nomMagasin = nomMagasin;
     }
 
     public String getNom() {
-        return Nom;
+        return nom;
     }
 
     public void setNom(String nom) {
-        Nom = nom;
+        this.nom = nom;
     }
 
     public String getPrenom() {
-        return Prenom;
+        return prenom;
     }
 
     public void setPrenom(String prenom) {
-        Prenom = prenom;
+        this.prenom = prenom;
     }
 
     public String getMail() {
-        return Mail;
+        return mail;
     }
 
     public void setMail(String mail) {
-        Mail = mail;
+        this.mail = mail;
     }
 
-    public Vendeur() {
-    }
-
-    public Vendeur(String nom, String prenom, String mail, String nomMagasin, int idRayonParam) {
-        Nom = nom;
-        Prenom = prenom;
-        Mail = mail;
-        NomMagasin = nomMagasin;
+    public Vendeur(String nomParam, String prenomParam, String mailParam, String nomMagasinParam, int idRayonParam) {
+        nom = nomParam;
+        prenom = prenomParam;
+        mail = mailParam;
+        nomMagasin = nomMagasinParam;
         idRayon = idRayonParam;
     }
 }
