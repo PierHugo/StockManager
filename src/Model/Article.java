@@ -6,6 +6,7 @@ public class    Article
     private String reference;
     private String nom;
     private int quantite;
+    private String nomRayon;
 
     public int getQuantite() {
         return quantite;
@@ -14,8 +15,6 @@ public class    Article
     public void setQuantite(int quantite) {
         this.quantite = quantite;
     }
-
-    private String rayon;
 
     public float getPrix()
     {
@@ -47,13 +46,13 @@ public class    Article
         this.nom = nom;
     }
 
-    public String getRayon()
+    public String getNomRayon()
     {
-        return rayon;
+        return nomRayon;
     }
 
-    public void setRayon(String rayon)
+    public void setNomRayon(String nomRayon)
     {
-        this.rayon = rayon;
+        this.nomRayon = nomRayon;
     }
 }

@@ -4,18 +4,18 @@ import java.io.IOException;
 
 public class ResponsableMagasin  {
 
-    private boolean EstAdmin;
+    private boolean estAdmin;
     private String prenom;
     private String nom;
     private String mail;
     private Magasin magasin;
 
     public boolean isEstAdmin() {
-        return EstAdmin;
+        return estAdmin;
     }
 
     public void setEstAdmin(boolean estAdmin) {
-        EstAdmin = estAdmin;
+        this.estAdmin = estAdmin;
     }
 
     public Magasin getMagasin() {
@@ -27,6 +27,7 @@ public class ResponsableMagasin  {
     }
 
     public  ResponsableMagasin(String prenomParam, String nomParam, String mailParam, Magasin magasinParam){
+        estAdmin = true;
         prenom = prenomParam;
         nom = nomParam;
         mail = mailParam;
@@ -36,16 +37,17 @@ public class ResponsableMagasin  {
     //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin.
     //TODO : Gérer les excéptions, cas d'ajouter un employe deja existant, supprimer un employe inexistant, etc
 
-    public void ajouterEmploye(Vendeur vendeur) {
+    public void ajouterVendeur(Vendeur vendeur) {
         magasin.getVendeurs().add(vendeur);
     }
 
-    public void supprimerEmploye (Vendeur vendeur) {
+    public void supprimerVendeur (Vendeur vendeur) {
         magasin.getVendeurs().remove(vendeur);
     }
 
     public void changerRayon (Vendeur vendeur, int idRayon) {
-       vendeur.setIdRayon(idRayon);
+        int index = magasin.getVendeurs().indexOf(vendeur);
+       magasin.getVendeurs().get(index).setIdRayon(idRayon);
     }
 
      public void modifierMail (Vendeur vendeur, String mail) {
