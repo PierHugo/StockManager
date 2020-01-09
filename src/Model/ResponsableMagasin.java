@@ -35,7 +35,6 @@ public class ResponsableMagasin  {
     }
 
     //TODO : Faire les méthodes pour ajouter, modifier, supprimer un employé d'un magasin.
-    //TODO : Gérer les excéptions, cas d'ajouter un employe deja existant, supprimer un employe inexistant, etc
 
     public void ajouterVendeur(Vendeur vendeur) {
         magasin.getVendeurs().add(vendeur);
@@ -45,9 +44,13 @@ public class ResponsableMagasin  {
         magasin.getVendeurs().remove(vendeur);
     }
 
-    public void changerRayon (Vendeur vendeur, int idRayon) {
+    public void changerRayon (Vendeur vendeur, Rayon rayon) {
         int index = magasin.getVendeurs().indexOf(vendeur);
-       magasin.getVendeurs().get(index).setIdRayon(idRayon);
+        int newIdRayon = rayon.getIdRayon();
+        magasin.getVendeurs().get(index).setRayon(rayon);
+        magasin.getVendeurs().get(index).setIdRayon(newIdRayon);
+
+
     }
 
      public void modifierMail (Vendeur vendeur, String mail) {

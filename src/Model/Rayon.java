@@ -8,16 +8,6 @@ public class Rayon
     private String nom;
     int idRayon;
 
-    public ArrayList<Article> getArticles()
-    {
-        return ArticlesRayon;
-    }
-
-    public void setArticles(ArrayList<Article> articles)
-    {
-        ArticlesRayon = articles;
-    }
-
     public String getNom()
     {
         return nom;
@@ -28,9 +18,25 @@ public class Rayon
         this.nom = nom;
     }
 
-    public Rayon() {
+    public ArrayList<Article> getArticlesRayon() {
+        return ArticlesRayon;
+    }
+
+    public void setArticlesRayon(ArrayList<Article> articlesRayon) {
+        ArticlesRayon = articlesRayon;
+    }
+
+    public int getIdRayon() {
+        return idRayon;
+    }
+
+    public void setIdRayon(int idRayon) {
+        this.idRayon = idRayon;
+    }
+
+    public Rayon(String nomParam) {
         ArticlesRayon = new ArrayList<>();
-        nom = "";
+        nom = nomParam;
         idRayon = 0;
     }
 

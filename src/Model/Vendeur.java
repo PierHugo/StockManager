@@ -29,7 +29,7 @@ public class Vendeur {
     }
 
     public void setNomMagasin(String nomMagasin) {
-        nomMagasin = nomMagasin;
+        this.nomMagasin = nomMagasin;
     }
 
     public String getNom() {
@@ -56,34 +56,35 @@ public class Vendeur {
         this.mail = mail;
     }
 
-    public Vendeur(String nomParam, String prenomParam, String mailParam, String nomMagasinParam, int idRayonParam) {
+    public Vendeur(String nomParam, String prenomParam, String mailParam, String nomMagasinParam, int idRayonParam, Rayon rayonParam) {
         nom = nomParam;
         prenom = prenomParam;
         mail = mailParam;
         nomMagasin = nomMagasinParam;
         idRayon = idRayonParam;
+        rayon = rayonParam;
     }
 
     public void ajouterArticle (Article article) {
-        rayon.getArticles().add(article);
+        rayon.getArticlesRayon().add(article);
     }
 
     public void supprimerArticle (Article article) {
-        rayon.getArticles().remove(article);
+        rayon.getArticlesRayon().remove(article);
     }
 
-    public void modifierPrix (Article article, float prix) {
-        int index = rayon.getArticles().indexOf(article);
-        rayon.getArticles().get(index).setPrix(prix);
+    public void modifierPrix (Article article, double prix) {
+        int index = rayon.getArticlesRayon().indexOf(article);
+        rayon.getArticlesRayon().get(index).setPrix(prix);
     }
 
     public void modifierQuantite (Article article, int quantite) {
-        int index = rayon.getArticles().indexOf(article);
-        rayon.getArticles().get(index).setQuantite(quantite);
+        int index = rayon.getArticlesRayon().indexOf(article);
+        rayon.getArticlesRayon().get(index).setQuantite(quantite);
     }
 
     public void modifierNomRayon (Article article, String nomRayon) {
-        int index = rayon.getArticles().indexOf(article);
-        rayon.getArticles().get(index).setNomRayon(nomRayon);
+        int index = rayon.getArticlesRayon().indexOf(article);
+        rayon.getArticlesRayon().get(index).setNomRayon(nomRayon);
     }
 }

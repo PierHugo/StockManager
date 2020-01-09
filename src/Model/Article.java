@@ -2,7 +2,7 @@ package Model;
 
 public class    Article
 {
-    private float prix;
+    private double prix;
     private String reference;
     private String nom;
     private int quantite;
@@ -16,12 +16,12 @@ public class    Article
         this.quantite = quantite;
     }
 
-    public float getPrix()
+    public double getPrix()
     {
         return prix;
     }
 
-    public void setPrix(float prix)
+    public void setPrix(double prix)
     {
         this.prix = prix;
     }
@@ -53,6 +53,14 @@ public class    Article
 
     public void setNomRayon(String nomRayon)
     {
+        this.nomRayon = nomRayon;
+    }
+
+    public Article(double prix, String reference, String nom, int quantite, String nomRayon) {
+        this.prix = prix;
+        this.reference = reference;
+        this.nom = nom;
+        this.quantite = quantite;
         this.nomRayon = nomRayon;
     }
 }
