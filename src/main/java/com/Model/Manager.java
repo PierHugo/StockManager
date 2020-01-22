@@ -1,12 +1,28 @@
 package Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.OneToOne;
+
+@Entity
 public class Manager
 {
+    @Column(name = "isadmin")
     private boolean isAdmin;
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
+    @Id
+    @Column(name = "mail")
     private String mail;
+    @OneToOne
     private Shop shop;
+
+    public Manager()
+    {
+    }
 
     public Manager(String firstNameParam, String lastNameParam, String mailParam, Shop shopParam)
     {
@@ -82,9 +98,7 @@ public class Manager
     public void editDepartment(Seller sellerParam, Department departmentParam)
     {
         int index = shop.getSellers().indexOf(sellerParam);
-        int newDepartmentId = departmentParam.getId();
         shop.getSellers().get(index).setDepartment(departmentParam);
-        shop.getSellers().get(index).setDepartmentId(newDepartmentId);
     }
 
     public void editMail(Seller sellerParam, String mailParam)
@@ -93,10 +107,10 @@ public class Manager
         shop.getSellers().get(index).setMail(mailParam);
     }
 
-    public void editShopName(Seller sellerParam, String ShopNameParam)
+    public void editShop(Seller sellerParam, Shop ShopParam)
     {
         int index = shop.getSellers().indexOf(sellerParam);
-        shop.getSellers().get(index).setShopName(ShopNameParam);
+        shop.getSellers().get(index).setShop(ShopParam);
     }
 
 }

@@ -1,20 +1,36 @@
 package Model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Item
 {
+    @Column(name = "price")
     private double price;
+    @Id
+    @Column(name = "reference")
     private String reference;
+    @Column(name = "name")
     private String name;
+    @Column(name = "quantity")
     private int quantity;
-    private String departmentName;
+    @ManyToOne
+    private Department department;
 
-    public Item(double priceParam, String referenceParam, String nameParam, int quantityParam, String departmentNameParam)
+    public Item()
+    {
+    }
+
+    public Item(double priceParam, String referenceParam, String nameParam, int quantityParam, Department departmentParam)
     {
         this.price = priceParam;
         this.reference = referenceParam;
         this.name = nameParam;
         this.quantity = quantityParam;
-        this.departmentName = departmentNameParam;
+        this.department = departmentParam;
     }
 
     public double getPrice()
@@ -57,13 +73,13 @@ public class Item
         this.quantity = quantity;
     }
 
-    public String getDepartmentName()
+    public Department getDepartment()
     {
-        return departmentName;
+        return department;
     }
 
-    public void setDepartmentName(String departmentName)
+    public void setDepartment(Department department)
     {
-        this.departmentName = departmentName;
+        this.department = department;
     }
 }

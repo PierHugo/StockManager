@@ -1,72 +1,77 @@
 package Model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 public class Shop
 {
-    private ArrayList<Item> items;
-    private ArrayList<Department> departments;
-    private ArrayList<Seller> sellers;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shop")
+    private List<Department> departments;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "shop")
+    private List<Seller> sellers;
+    @Id
+    @Column(name = "name")
     private String name;
-    private String managerName;
+    @OneToOne
+    private Manager manager;
 
-
-    public Shop(String nameParam, String managerNameParam)
+    public Shop()
     {
-        items = new ArrayList<>();
+    }
+
+    public Shop(String nameParam)
+    {
         departments = new ArrayList<>();
         sellers = new ArrayList<>();
         name = nameParam;
-        managerName = managerNameParam;
     }
 
-    public Shop(ArrayList<Item> itemsParam, ArrayList<Department> departmentsParam, ArrayList<Seller> sellersParam, String nameParam, String managerNameParam)
+    public Shop(String nameParam, Manager managerParam)
     {
-        items = itemsParam;
+        departments = new ArrayList<>();
+        sellers = new ArrayList<>();
+        name = nameParam;
+        manager = managerParam;
+    }
+
+    public Shop(List<Item> itemsParam, List<Department> departmentsParam, List<Seller> sellersParam, String nameParam, Manager managerParam)
+    {
         departments = departmentsParam;
         sellers = sellersParam;
         name = nameParam;
-        managerName = managerNameParam;
+        manager = managerParam;
     }
 
-    public ArrayList<Item> getItems()
-    {
-        return items;
-    }
-
-    public void setItems(ArrayList<Item> items)
-    {
-        this.items = items;
-    }
-
-    public ArrayList<Department> getDepartments()
+    public List<Department> getDepartments()
     {
         return departments;
     }
 
-    public void setDepartments(ArrayList<Department> departments)
+    public void setDepartments(List<Department> departments)
     {
         this.departments = departments;
     }
 
-    public ArrayList<Seller> getSellers()
+    public List<Seller> getSellers()
     {
         return sellers;
     }
 
-    public void setSellers(ArrayList<Seller> sellers)
+    public void setSellers(List<Seller> sellers)
     {
         this.sellers = sellers;
     }
 
-    public String getManagerName()
+    public Manager getManager()
     {
-        return managerName;
+        return manager;
     }
 
-    public void setManagerName(String managerName)
+    public void setManager(Manager manager)
     {
-        this.managerName = managerName;
+        this.manager = manager;
     }
 
     public String getName()

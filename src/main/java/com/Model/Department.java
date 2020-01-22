@@ -1,12 +1,27 @@
 package Model;
 
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
+@Entity
 public class Department
 {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     int id;
-    private ArrayList<Item> items;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "department")
+    private List<Item> items;
+    @Column(name = "name")
     private String name;
+    @ManyToOne
+    private Seller seller;
+    @ManyToOne
+    private Shop shop;
+
+    public Department()
+    {
+    }
 
     public Department(String nameParam)
     {
@@ -15,19 +30,19 @@ public class Department
         id = 0;
     }
 
-    public Department(ArrayList<Item> itemsParam, String nameParam, int idParam)
+    public Department(List<Item> itemsParam, String nameParam, int idParam)
     {
         items = itemsParam;
         name = nameParam;
         id = idParam;
     }
 
-    public ArrayList<Item> getItems()
+    public List<Item> getItems()
     {
         return items;
     }
 
-    public void setItems(ArrayList<Item> items)
+    public void setItems(List<Item> items)
     {
         this.items = items;
     }

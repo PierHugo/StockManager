@@ -1,6 +1,7 @@
 import Model.Department;
 import Model.Item;
 import Model.Seller;
+import Model.Shop;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -8,12 +9,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class SellerTest
 {
     Department departmentTest = new Department("DepartmentTest");
-    Seller sellerTest = new Seller("Piedloup", "Erwann", "epiedloup92@gmail.com", "MagasinTest", 0, departmentTest);
+    Shop shopTest = new Shop("ShopTest");
+    Seller sellerTest = new Seller("Piedloup", "Erwann", "epiedloup92@gmail.com", shopTest, departmentTest);
 
     @Test
     void addItem()
     {
-        Item itemTest = new Item(5.00, "FFFF8", "Balle de Ping-Pong", 10, "DepartmentTest");
+        Department departmentTest = new Department("DepartmentTest");
+        Item itemTest = new Item(5.00, "FFFF8", "Balle de Ping-Pong", 10, departmentTest);
 
         sellerTest.addItem(itemTest);
         assertTrue(sellerTest.getDepartment().getItems().contains(itemTest));
@@ -22,7 +25,8 @@ class SellerTest
     @Test
     void removeItem()
     {
-        Item itemTest = new Item(3.26, "BGYI7", "Gants", 3, "DepartmentTest");
+        Department departmentTest = new Department("DepartmentTest");
+        Item itemTest = new Item(3.26, "BGYI7", "Gants", 3, departmentTest);
         sellerTest.addItem(itemTest);
 
         sellerTest.removeItem(itemTest);
@@ -32,8 +36,9 @@ class SellerTest
     @Test
     void editPrice()
     {
+        Department departmentTest = new Department("DepartmentTest");
         double priceTest = 226.5;
-        Item itemTest = new Item(22.65, "JHUY4", "Vélo B-Twin", 1, "DepartmentTest");
+        Item itemTest = new Item(22.65, "JHUY4", "Vélo B-Twin", 1, departmentTest);
         sellerTest.addItem(itemTest);
         int indexTest = sellerTest.getDepartment().getItems().indexOf(itemTest);
 
@@ -44,8 +49,9 @@ class SellerTest
     @Test
     void editQuantity()
     {
+        Department departmentTest = new Department("DepartmentTest");
         int quantityTest = 50;
-        Item itemTest = new Item(8.00, "ABCD5", "Chaussettes de Sport", 5, "DepartmentTest");
+        Item itemTest = new Item(8.00, "ABCD5", "Chaussettes de Sport", 5, departmentTest);
         sellerTest.addItem(itemTest);
         int indexTest = sellerTest.getDepartment().getItems().indexOf(itemTest);
 
@@ -56,12 +62,12 @@ class SellerTest
     @Test
     void editDepartmentName()
     {
-        String nameDepartmentTest = "Department Test 2";
-        Item itemTest = new Item(15.00, "BALO2", "Ballon de Basket-ball", 22, "DepartmentTest");
+        Department departmentTest = new Department("DepartmentTest");
+        Item itemTest = new Item(15.00, "BALO2", "Ballon de Basket-ball", 22, departmentTest);
         sellerTest.addItem(itemTest);
         int indexTest = sellerTest.getDepartment().getItems().indexOf(itemTest);
 
-        sellerTest.editDepartmentName(itemTest, "Department Test 2");
-        assertEquals(nameDepartmentTest, sellerTest.getDepartment().getItems().get(indexTest).getDepartmentName());
+        sellerTest.editDepartment(itemTest, departmentTest);
+        assertEquals(departmentTest, sellerTest.getDepartment().getItems().get(indexTest).getDepartment());
     }
 }

@@ -1,32 +1,33 @@
 package Model;
 
+import javax.persistence.*;
+
+@Entity
 public class Seller
 {
+    @Column(name = "firstname")
     private String firstName;
+    @Column(name = "lastname")
     private String lastName;
+    @Id
+    @Column(name = "mail")
     private String mail;
-    private String shopName;
-    private int departmentId;
+    @ManyToOne
+    private Shop shop;
+    @OneToOne
     private Department department;
 
-    public Seller(String fistNameParam, String lastNameParam, String mailParam, String shopNameParam, int departmentIdParam, Department departmentParam)
+    public Seller()
     {
-        firstName = fistNameParam;
+    }
+
+    public Seller(String firstNameParam, String lastNameParam, String mailParam, Shop shopParam, Department departmentParam)
+    {
+        firstName = firstNameParam;
         lastName = lastNameParam;
         mail = mailParam;
-        shopName = shopNameParam;
-        departmentId = departmentIdParam;
+        shop = shopParam;
         department = departmentParam;
-    }
-
-    public int getDepartmentId()
-    {
-        return departmentId;
-    }
-
-    public void setDepartmentId(int departmentId)
-    {
-        this.departmentId = departmentId;
     }
 
     public Department getDepartment()
@@ -39,14 +40,14 @@ public class Seller
         this.department = department;
     }
 
-    public String getShopName()
+    public Shop getShop()
     {
-        return shopName;
+        return shop;
     }
 
-    public void setShopName(String shopName)
+    public void setShop(Shop shop)
     {
-        this.shopName = shopName;
+        this.shop = shop;
     }
 
     public String getFirstName()
@@ -101,9 +102,9 @@ public class Seller
         department.getItems().get(index).setQuantity(quantiteParam);
     }
 
-    public void editDepartmentName(Item itemParam, String departmentNameParam)
+    public void editDepartment(Item itemParam, Department departmentParam)
     {
         int index = department.getItems().indexOf(itemParam);
-        department.getItems().get(index).setDepartmentName(departmentNameParam);
+        department.getItems().get(index).setDepartment(departmentParam);
     }
 }
