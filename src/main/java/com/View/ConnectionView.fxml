@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.ControllerConnectionView">
+   <children>
+      <Pane prefHeight="400.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label layoutX="160.0" layoutY="66.0" text="Welcome to Stock Manager">
+               <font>
+                  <Font name="Times New Roman" size="25.0" />
+               </font>
+            </Label>
+            <Label layoutX="55.0" layoutY="164.0" text="Username">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Label layoutX="57.0" layoutY="236.0" text="Password">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <PasswordField layoutX="171.0" layoutY="234.0" />
+            <TextField layoutX="171.0" layoutY="162.0" />
+            <Button layoutX="222.0" layoutY="286.0" mnemonicParsing="false" text="Login" />
+            <Button layoutX="466.0" layoutY="361.0" mnemonicParsing="false" text="Password forgotten" />
+            <Label layoutX="300.0" layoutY="365.0" text="Trouble with the Login ?" />
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>
