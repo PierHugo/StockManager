@@ -66,4 +66,24 @@ public class Department
     {
         this.id = id;
     }
+
+    public Seller getSeller()
+    {
+        return seller;
+    }
+
+    public void setSeller(Seller seller)
+    {
+        this.seller = seller;
+    }
+
+    public Shop getShop()
+    {
+        return shop;
+    }
+
+    public void setShop(Shop shop)
+    {
+        this.shop = shop;
+    }
 }
