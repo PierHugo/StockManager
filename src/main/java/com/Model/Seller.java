@@ -35,6 +35,10 @@ public class Seller
         return department;
     }
 
+    public String getDepartmentName() { return department.getName(); }
+
+    public void setDepartmentName(String departmentName) { department.setName(departmentName);}
+
     public void setDepartment(Department department)
     {
         this.department = department;
