@@ -1,5 +1,6 @@
 package Main;
 
+import Controller.ControllerLobbyView;
 import DB.Dataset;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -64,7 +65,7 @@ public class Main extends Application
         }
     }
 
-    private void showConnectionView() {
+    public void showConnectionView() {
         try {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(Main.class.getResource("/View/ConnectionView.fxml"));
@@ -76,6 +77,9 @@ public class Main extends Application
             e.printStackTrace();
         }
     }
+
+
+
 
     public Stage getPrimaryStage() {
         return primaryStage;

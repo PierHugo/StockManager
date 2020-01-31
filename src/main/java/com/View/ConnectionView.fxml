@@ -21,8 +21,8 @@
                   <Font size="15.0" />
                </font>
             </Label>
-            <TextField layoutX="226.0" layoutY="211.0" />
-            <Button layoutX="277.0" layoutY="339.0" mnemonicParsing="false" text="Login" />
+            <TextField fx:id="connectionField" layoutX="226.0" layoutY="211.0" />
+            <Button fx:id="loginButton" layoutX="277.0" layoutY="339.0" mnemonicParsing="false" onAction="#handleLoginButton" text="Login" />
          </children>
       </Pane>
    </children>
