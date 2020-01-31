@@ -35,12 +35,18 @@ public abstract class Dataset
         em.persist(shop1);
         em.getTransaction().commit();
 
+        //Add shop to department
+        em.getTransaction().begin();
+        department1.setShop(shop1);
+        department2.setShop(shop1);
+        em.persist(department1);
+        em.persist(department2);
+        em.getTransaction().commit();
+
         // Creation manager
         em.getTransaction().begin();
         Manager manager1 = new Manager("Jean", "Bon", "jeanbon@gmail.com", shop1);
-        Manager manager2 = new Manager("Jacques", "Ouzzi", "jacquesouzzi@gmail.com", shop1);
         em.persist(manager1);
-        em.persist(manager2);
         em.getTransaction().commit();
 
         // Creation seller
@@ -49,6 +55,14 @@ public abstract class Dataset
         Seller seller2 = new Seller("Gui", "Mauve", "guimauve@gmail.com", shop1, department2);
         em.persist(seller1);
         em.persist(seller2);
+        em.getTransaction().commit();
+
+        //Add seller to department
+        em.getTransaction().begin();
+        department1.setSeller(seller1);
+        department2.setSeller(seller2);
+        em.persist(department1);
+        em.persist(department2);
         em.getTransaction().commit();
     }
 }
