@@ -6,7 +6,7 @@
 
         <class>Model.Item</class>
         <class>Model.Shop</class>
-        <class>Model.Department</class>
+        <class>Model.Manager</class>
         <class>Model.Manager</class>
         <class>Model.Seller</class>
 

@@ -1,7 +1,5 @@
 package Model;
 
-import javafx.beans.property.*;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -11,14 +9,14 @@ import javax.persistence.ManyToOne;
 public class Item
 {
     @Column(name = "price")
-    private DoubleProperty price;
+    private Double price;
     @Id
     @Column(name = "reference")
-    private StringProperty reference;
+    private String reference;
     @Column(name = "name")
-    private StringProperty name;
+    private String name;
     @Column(name = "quantity")
-    private IntegerProperty quantity;
+    private Integer quantity;
     @ManyToOne
     private Department department;
 
@@ -28,66 +26,70 @@ public class Item
 
     public Item(double priceParam, String referenceParam, String nameParam, int quantityParam, Department departmentParam)
     {
-        this.price = new SimpleDoubleProperty(priceParam);
-        this.reference = new SimpleStringProperty(referenceParam);
-        this.name = new SimpleStringProperty(nameParam);
-        this.quantity = new SimpleIntegerProperty(quantityParam);
+        this.price = priceParam;
+        this.reference = referenceParam;
+        this.name = nameParam;
+        this.quantity = quantityParam;
         this.department = departmentParam;
     }
 
     public double getPrice()
     {
-        return price.get();
+        return price;
     }
 
     public void setPrice(double price)
     {
-        this.price.set(price);
+        this.price = price;
     }
 
-    public DoubleProperty priceProperty() {
+    public Double price()
+    {
         return price;
     }
 
     public String getReference()
     {
-        return reference.get();
+        return reference;
     }
 
     public void setReference(String reference)
     {
-        this.reference.set(reference);
+        this.reference = reference;
     }
 
-    public StringProperty referenceProperty() {
+    public String reference()
+    {
         return reference;
     }
 
     public String getName()
     {
-        return name.get();
+        return name;
     }
 
     public void setName(String name)
     {
-        this.name.set(name);
+        this.name = name;
     }
 
-    public StringProperty nameProperty() {
+    public String name()
+    {
         return name;
     }
 
     public int getQuantity()
     {
-        return quantity.get();
+        return quantity;
     }
 
     public void setQuantity(int quantity)
     {
-        this.quantity.set(quantity);
+        this.quantity = quantity;
     }
 
-    public IntegerProperty quantityProperty() {
+    public Integer quantity()
+    {
         return quantity;
     }
 

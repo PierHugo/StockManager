@@ -1,25 +1,17 @@
 package Model;
 
-
-import javafx.beans.property.IntegerProperty;
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.property.SimpleStringProperty;
-import javafx.beans.property.StringProperty;
-
 import javax.persistence.*;
 
 @Entity
 public class Seller
 {
     @Column(name = "firstname")
-    private StringProperty firstName;
+    private String firstName;
     @Column(name = "lastname")
-    private StringProperty lastName;
+    private String lastName;
     @Id
     @Column(name = "mail")
-    private StringProperty mail;
+    private String mail;
     @ManyToOne
     private Shop shop;
     @OneToOne
@@ -31,9 +23,9 @@ public class Seller
 
     public Seller(String firstNameParam, String lastNameParam, String mailParam, Shop shopParam, Department departmentParam)
     {
-        this.firstName = new SimpleStringProperty(firstNameParam);
-        this.lastName = new SimpleStringProperty(lastNameParam);
-        this.mail = new SimpleStringProperty(mailParam);
+        this.firstName = firstNameParam;
+        this.lastName = lastNameParam;
+        this.mail = mailParam;
         this.shop = shopParam;
         this.department = departmentParam;
     }
@@ -60,43 +52,46 @@ public class Seller
 
     public String getFirstName()
     {
-        return firstName.get();
+        return firstName;
     }
 
     public void setFirstName(String firstName)
     {
-        this.firstName.set(firstName);
+        this.firstName = firstName;
     }
 
-    public StringProperty firstNameProperty() {
+    public String firstName()
+    {
         return firstName;
     }
 
     public String getLastName()
     {
-        return lastName.get();
+        return lastName;
     }
 
     public void setLastName(String lastName)
     {
-        this.lastName.set(lastName);
+        this.lastName = lastName;
     }
 
-    public StringProperty lastNameProperty() {
+    public String lastName()
+    {
         return lastName;
     }
 
     public String getMail()
     {
-        return mail.get();
+        return mail;
     }
 
     public void setMail(String mail)
     {
-        this.mail.set(mail);
+        this.mail = mail;
     }
 
-    public StringProperty mailProperty() {
+    public String mail()
+    {
         return mail;
     }
 
