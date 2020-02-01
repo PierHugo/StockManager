@@ -1,22 +1,49 @@
 package Controller;
 
+import DAO.DAOSeller;
 import Main.Main;
 import Model.Seller;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
+import javax.persistence.EntityManager;
 import java.io.IOException;
 
 public class ControllerSellerView {
 
+    public static EntityManager em;
+
+    @FXML
+    private TableView<Seller> sellerTable;
+    @FXML
+    private TableColumn<Seller, String> firstNameColumn;
+    @FXML
+    private TableColumn<Seller, String> lastNameColumn;
+    @FXML
+    private Label firstNameLabel;
+    @FXML
+    private Label lastNameLabel;
+    @FXML
+    private Label mailLabel;
+    @FXML
+    private Label departmentNameLabel;
+
     private Main main;
+    private DAOSeller daoSeller = new DAOSeller(em);
+
 
     public boolean showPersonEditDialog(Seller seller) {
         try {
@@ -67,6 +94,37 @@ public class ControllerSellerView {
         catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    private void showSellerDetails(Seller seller) {
+        if (seller != null) {
+            // Fill the labels with info from the person object.
+            firstNameLabel.setText(seller.getFirstName());
+            lastNameLabel.setText(seller.getLastName());
+            mailLabel.setText(seller.getMail());
+            departmentNameLabel.setText(seller.getDepartmentName());
+
+        } else {
+            // Person is null, remove all the text.
+            firstNameLabel.setText("");
+            lastNameLabel.setText("");
+            mailLabel.setText("");
+            departmentNameLabel.setText("");
+        }
+    }
+
+    @FXML
+    public void initialize() {
+
+        firstNameColumn.setCellValueFactory(
+                new PropertyValueFactory<Seller, String>("firstName"));
+        lastNameColumn.setCellValueFactory(
+                new PropertyValueFactory<Seller, String>("lastName"));
+
+        // Clear person details.
+        showSellerDetails(null);
+
+        //ObservableList<Seller> sellerData = FXCollections.observableArrayList(daoSeller.getAllSellers());
     }
 }
 

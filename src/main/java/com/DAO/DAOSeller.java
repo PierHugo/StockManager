@@ -24,7 +24,8 @@ public class DAOSeller
 
         List<Seller> results = em.createQuery(queryString).getResultList();
 
-        return results;
+       return results;
+       // return em.createQuery("SELECT e FROM " + nomBase + " e").getResultList();
     }
 
     public static List<Seller> getSellersFromShopName(Shop parameter)

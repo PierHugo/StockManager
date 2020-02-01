@@ -16,29 +16,26 @@ import javax.persistence.Persistence;
 
 import java.io.IOException;
 
-public class Main extends Application
-{
+public class Main extends Application{
+
     private Stage primaryStage;
     private BorderPane viewMain;
-    
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         /*Database*/
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("test");
         EntityManager em = entityManagerFactory.createEntityManager();
-        try
-        {
+        try {
             Dataset.createDatas(em);
-        } catch (Exception e)
-        {
+        } catch (Exception e) {
             System.out.println("Erreur lors de la création de la base de données ou des données :\n-> " + e);
         }
         launch(args);
     }
 
+
     @Override
-    public void start(Stage primaryStage) 
+    public void start(Stage primaryStage)
     {
         this.primaryStage = primaryStage;
         this.primaryStage.setTitle("Stock Manager");
@@ -85,3 +82,9 @@ public class Main extends Application
         return primaryStage;
     }
 }
+
+
+
+
+
+
